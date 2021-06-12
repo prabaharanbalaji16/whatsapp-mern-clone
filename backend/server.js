@@ -79,18 +79,6 @@ db.once('open',()=>{
 // api routes
 app.get('/',(req,res)=>res.status(200).send('hello world'))
 
-// app.get('/messages/sync',(req,res)=>{
-//     // eslint-disable-next-line array-callback-return
-//     Messages.find((err,data) => {
-//         if(err){
-//             res.status(500).send(err)
-//         }
-//         else{
-//             res.status(200).send(data)
-//         }
-//     })
-// })
-
 app.get('/messages/sync',(req,res)=>{
     const roomId = req.query.roomId
     Messages.find({roomId:(roomId)},(err,data) => {
